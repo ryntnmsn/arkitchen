@@ -1,0 +1,50 @@
+<script setup lang="ts">
+import { Head, Link } from '@inertiajs/vue3';
+
+type Seo = { title: string; description: string; canonical: string; primaryKeyword: string; secondaryKeywords: string[] };
+defineProps<{ seo: Seo; services: { slug: string; name: string; keyword: string; image: string; imageAlt: string }[] }>();
+const serviceNotes: Record<string, string> = {
+    'kitchen-cabinets': 'Everyday storage planned around the way you cook and move.',
+    wardrobes: 'A calmer place for clothes, linens, shoes, and daily essentials.',
+    'walk-in-closets': 'Useful zones with enough room to move and reach what you need.',
+    'vanity-cabinets': 'Vanity storage planned around your basin, plumbing, and routine.',
+    'dresser-cabinets': 'Drawer layouts and proportions chosen for your bedroom space.',
+};
+</script>
+
+<template>
+    <Head :title="seo.title"><meta name="description" :content="seo.description"><meta name="keywords" :content="[seo.primaryKeyword, ...seo.secondaryKeywords].join(', ')"><link rel="canonical" :href="seo.canonical"><meta property="og:title" :content="seo.title"><meta property="og:description" :content="seo.description"><meta property="og:url" :content="seo.canonical"><meta property="og:type" content="website"></Head>
+    <section class="mx-auto grid max-w-7xl items-center gap-10 px-5 pt-10 pb-16 sm:pt-16 lg:grid-cols-[1.02fr_.98fr] lg:px-8 lg:pt-20 lg:pb-24">
+        <div class="max-w-2xl">
+            <p class="inline-flex items-center gap-2 rounded-full border border-[#e8d7d0] bg-[#f8eee9] px-4 py-2 text-xs font-semibold tracking-wide text-[#783d36]"><span class="h-2 w-2 rounded-full bg-[#a15c50]"></span> Cebu · Central Visayas</p>
+            <h1 class="mt-7 text-4xl leading-[1.08] font-semibold tracking-[-0.04em] text-[#292521] sm:text-5xl lg:text-6xl">Kitchen cabinet design in Cebu, made for <span class="text-[#783d36]">your everyday.</span></h1>
+            <p class="mt-6 max-w-xl text-base leading-7 text-[#6d655d] sm:text-lg">A.R. Kitchen Cabinet Design helps homeowners plan modular kitchen cabinets, wardrobes, closets, and more around their room, routine, and storage needs.</p>
+            <div class="mt-8 flex flex-col gap-3 sm:flex-row"><Link href="/contact" class="inline-flex justify-center rounded-full bg-[#783d36] px-6 py-3.5 text-sm font-semibold text-white shadow-lg shadow-[#783d36]/15 transition hover:bg-[#5f2e29]">Request a free quote </Link><Link href="/design-your-cabinet" class="inline-flex justify-center rounded-full border border-[#d8cec4] px-6 py-3.5 text-sm font-semibold text-[#453d37] transition hover:bg-white">Try the cabinet design preview</Link></div>
+            <div class="mt-9 flex flex-wrap gap-x-7 gap-y-3 border-t border-[#e9e3dc] pt-6 text-sm text-[#6d655d]"><span>Designed around your room</span><span>Options to discuss with a cabinet maker</span><span>Serving Cebu and Central Visayas</span></div>
+        </div>
+        <div class="relative mx-auto w-full max-w-[590px]">
+            <div class="absolute -top-4 -right-2 h-28 w-28 rounded-full bg-[#e9d8c7] blur-2xl"></div>
+            <div class="relative rounded-[2rem] border border-[#e8dfd5] bg-[#f0e9df] p-3 shadow-2xl shadow-[#49382c]/10"><img src="https://media.base44.com/images/public/6afd6cc97c9aaf3f1fbaef08/0885aecae_generated_53c7acbc.png/v1/fill/w_525,h_420,al_c,q_90,usm_0.66_1.00_0.01,enc_auto,quality_auto/0885aecae_generated_53c7acbc.png" alt="Sunlit Cebu kitchen with cream and oak modular cabinets and quartz worktop" class="w-full rounded-2xl object-cover" fetchpriority="high"/><span class="absolute bottom-6 left-6 rounded-full bg-[#292521]/70 px-4 py-2 text-xs font-semibold tracking-wide text-white">KITCHEN CABINET</span><div class="absolute right-6 bottom-6 rounded-2xl border border-white/70 bg-white/90 px-4 py-3 shadow-lg backdrop-blur"><span class="block text-[10px] font-semibold tracking-[0.16em] text-[#8d6e5b] uppercase">A thoughtful starting point</span><span class="mt-1 block text-sm font-semibold">Room-first cabinet planning</span></div></div>
+            <p class="mt-3 text-center text-xs text-[#857a70]">Illustrative design study · Not a completed customer project</p>
+        </div>
+    </section>
+
+    <section class="border-y border-[#eee7df] bg-white">
+        <div class="mx-auto grid max-w-7xl gap-5 px-5 py-6 sm:grid-cols-3 lg:px-8"><div class="flex items-start gap-3"><span class="text-xl text-[#9a594f]">01</span><div><p class="text-sm font-semibold">Start with your space</p><p class="mt-1 text-sm text-[#7b746d]">Rough measurements, photos, and room details.</p></div></div><div class="flex items-start gap-3"><span class="text-xl text-[#9a594f]">02</span><div><p class="text-sm font-semibold">Talk through the options</p><p class="mt-1 text-sm text-[#7b746d]">Storage, finish direction, and layout priorities.</p></div></div><div class="flex items-start gap-3"><span class="text-xl text-[#9a594f]">03</span><div><p class="text-sm font-semibold">Request a project quote</p><p class="mt-1 text-sm text-[#7b746d]">Share your brief for a human follow-up.</p></div></div></div>
+    </section>
+
+    <section class="mx-auto max-w-7xl px-5 py-20 lg:px-8 lg:py-24">
+        <div class="flex flex-col gap-5 sm:flex-row sm:items-end sm:justify-between"><div><p class="text-xs font-semibold tracking-[0.18em] text-[#9a594f] uppercase">What we can help plan</p><h2 class="mt-3 max-w-2xl text-3xl font-semibold tracking-tight sm:text-4xl">Cabinet design for the rooms you use most.</h2></div><Link href="/services" class="text-sm font-semibold text-[#783d36] underline decoration-[#c5a29a] underline-offset-4">Explore all services </Link></div>
+        <div class="mt-9 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+            <Link v-for="service in services" :key="service.slug" :href="`/services/${service.slug}`" class="group overflow-hidden rounded-2xl border border-[#eae3dc] bg-white transition hover:-translate-y-1 hover:border-[#d0b1a9] hover:shadow-xl hover:shadow-[#47362b]/5"><div class="relative overflow-hidden"><img :src="service.image" :alt="service.imageAlt" class="aspect-[4/3] w-full object-cover transition duration-300 group-hover:scale-[1.02]" loading="lazy"><span class="absolute bottom-3 left-3 rounded-full bg-[#292521]/70 px-3 py-1.5 text-[10px] font-semibold tracking-wide text-white">KITCHEN CABINET</span></div><div class="p-6"><h3 class="text-lg font-semibold">{{ service.name }}</h3><p class="mt-2 text-sm leading-6 text-[#766e66]">{{ serviceNotes[service.slug] }}</p><span class="mt-5 inline-block text-sm font-semibold text-[#783d36]">See planning details</span></div></Link>
+        </div>
+    </section>
+
+    <section class="bg-[#efe8df]">
+        <div class="mx-auto grid max-w-7xl gap-10 px-5 py-16 lg:grid-cols-[.85fr_1.15fr] lg:items-center lg:px-8 lg:py-20"><div><p class="text-xs font-semibold tracking-[0.18em] text-[#9a594f] uppercase">A clear first step</p><h2 class="mt-3 text-3xl font-semibold tracking-tight sm:text-4xl">A little preparation makes a better conversation.</h2><p class="mt-4 max-w-lg text-sm leading-7 text-[#6c635b]">You don’t need a finished drawing. A few room photos, approximate measurements, and a note about what you want to store can help explain your project.</p><Link href="/contact" class="mt-6 inline-flex rounded-full bg-[#783d36] px-5 py-3 text-sm font-semibold text-white hover:bg-[#5f2e29]">Tell us about your project</Link></div>
+            <div class="grid gap-3 sm:grid-cols-2"><div class="rounded-2xl bg-white p-5"><span class="text-2xl">⌂</span><h3 class="mt-3 font-semibold">Room photos</h3><p class="mt-2 text-sm leading-6 text-[#766e66]">Take a wide photo from the doorway and one of each wall.</p></div><div class="rounded-2xl bg-white p-5"><span class="text-2xl">↔</span><h3 class="mt-3 font-semibold">Rough dimensions</h3><p class="mt-2 text-sm leading-6 text-[#766e66]">Wall lengths and ceiling height are a useful place to begin.</p></div><div class="rounded-2xl bg-white p-5"><span class="text-2xl">▤</span><h3 class="mt-3 font-semibold">Storage priorities</h3><p class="mt-2 text-sm leading-6 text-[#766e66]">List the items you use every day and those you’d like hidden.</p></div><div class="rounded-2xl bg-white p-5"><span class="text-2xl">◌</span><h3 class="mt-3 font-semibold">A style reference</h3><p class="mt-2 text-sm leading-6 text-[#766e66]">Colors, materials, or cabinet examples you are drawn to.</p></div></div>
+        </div>
+    </section>
+
+    <section class="mx-auto max-w-7xl px-5 py-20 lg:px-8"><div class="grid gap-9 rounded-[2rem] bg-[#783d36] p-8 text-white sm:p-12 lg:grid-cols-[1fr_auto] lg:items-center"><div><p class="text-xs font-semibold tracking-[0.18em] text-white/65 uppercase">Ready when you are</p><h2 class="mt-3 max-w-2xl text-3xl font-semibold tracking-tight sm:text-4xl">Let’s find a good fit for your home.</h2><p class="mt-4 max-w-2xl text-sm leading-7 text-white/75">Request a free project quote or call to talk through your kitchen, wardrobe, or storage plans.</p></div><div class="flex flex-col gap-3 sm:flex-row lg:flex-col"><Link href="/contact" class="rounded-full bg-white px-6 py-3.5 text-center text-sm font-semibold text-[#622f2a] hover:bg-[#f5eee7]">Request a free quote</Link><a href="tel:09652547644" class="rounded-full border border-white/35 px-6 py-3.5 text-center text-sm font-semibold hover:bg-white/10">Call 0965 254 7644</a></div></div></section>
+</template>
