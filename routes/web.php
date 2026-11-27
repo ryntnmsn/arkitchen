@@ -19,6 +19,7 @@ Route::get('/services/{slug}', [SiteController::class, 'service'])->name('servic
 Route::get('/gallery', [SiteController::class, 'gallery'])->name('gallery');
 Route::get('/about', [SiteController::class, 'about'])->name('about');
 Route::get('/contact', [SiteController::class, 'contact'])->name('contact');
+Route::get('/thank-you', [SiteController::class, 'thankYou'])->name('contact.thank-you');
 Route::post('/contact', [QuoteRequestController::class, 'store'])->middleware('throttle:10,60')->name('contact.store');
 Route::get('/design-your-cabinet', [SiteController::class, 'designer'])->name('designer');
 Route::post('/design-your-cabinet', [DesignRequestController::class, 'store'])->middleware('throttle:3,60')->name('designer.store');

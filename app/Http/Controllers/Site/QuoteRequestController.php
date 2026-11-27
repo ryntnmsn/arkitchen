@@ -3,9 +3,11 @@
 namespace App\Http\Controllers\Site;
 
 use App\Http\Controllers\Controller;
+use App\Mail\QuoteRequestReceived;
 use App\Models\QuoteRequest;
-use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
+use Illuminate\Http\RedirectResponse;
+use Illuminate\Support\Facades\Mail;
 
 class QuoteRequestController extends Controller
 {
@@ -24,7 +26,7 @@ class QuoteRequestController extends Controller
             ->map(fn ($photo) => $photo->store('quote-requests', 'local'))
             ->all();
 
-        QuoteRequest::create([
+        $quoteRequest = QuoteRequest::create([
             'name' => $data['name'],
             'phone' => $data['phone'],
             'email' => $data['email'],
@@ -32,6 +34,8 @@ class QuoteRequestController extends Controller
             'attachment_paths' => $paths,
         ]);
 
-        return redirect()->route('contact')->with('success', 'Thanks for sharing your project. The team can follow up using the details you provided.');
+        Mail::to(config('mail.to.address'))->send(new QuoteRequestReceived($quoteRequest));
+
+        return redirect()->route('contact.thank-you');
     }
 }

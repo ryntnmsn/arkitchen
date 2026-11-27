@@ -101,6 +101,11 @@ class SiteController extends Controller
         return Inertia::render('Site/Contact', ['seo' => $this->seo('Contact a Cabinet Maker in Cebu | Free Quote', 'Request a free cabinet project quote in Cebu. Share your name, phone, email, room details, and optional photos with A.R. Kitchen Cabinet Design. Talk with us.', 'cabinet quote Cebu', ['kitchen cabinet quote Cebu', 'cabinet installation quote Central Visayas'], '/contact')]);
     }
 
+    public function thankYou(): Response
+    {
+        return Inertia::render('Site/ThankYou', ['seo' => $this->seo('Thank You | A.R. Kitchen Cabinet Design', 'Your cabinet project request has been sent to A.R. Kitchen Cabinet Design.', 'cabinet quote Cebu', [], '/thank-you')]);
+    }
+
     public function designer(): Response
     {
         return Inertia::render('Site/Designer', ['seo' => $this->seo('AI Cabinet Design Preview Cebu | A.R. Kitchen', 'Build an AI-assisted cabinet brief for your Cebu home. Add dimensions, finish preferences, and room photos, then request a human review. Start with your room.', 'AI cabinet design Cebu', ['cabinet design preview Cebu', 'modular cabinet planner Central Visayas'], '/design-your-cabinet')]);
